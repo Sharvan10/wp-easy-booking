@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T08:51:30+00:00\n"
+"POT-Creation-Date: 2026-11-02T08:54:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: easy-booking\n"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: admin/class-admin.php:104
 #: admin/class-admin.php:105
-#: admin/class-admin.php:352
+#: admin/class-admin.php:355
 #: admin/class-dashboard-widget.php:64
 msgid "Bookings"
 msgstr ""
@@ -57,7 +57,7 @@ msgstr ""
 
 #: admin/class-admin.php:118
 #: admin/class-admin.php:136
-#: admin/class-admin.php:353
+#: admin/class-admin.php:356
 msgid "Settings"
 msgstr ""
 
@@ -69,35 +69,35 @@ msgstr ""
 msgid "Remove this service?"
 msgstr ""
 
-#: admin/class-admin.php:190
-#: admin/class-admin.php:326
-#: admin/class-admin.php:403
+#: admin/class-admin.php:193
+#: admin/class-admin.php:329
+#: admin/class-admin.php:406
 msgid "You do not have permission to manage bookings."
 msgstr ""
 
-#: admin/class-admin.php:206
+#: admin/class-admin.php:209
 msgid "Bookings per page"
 msgstr ""
 
-#: admin/class-admin.php:367
+#: admin/class-admin.php:370
 msgid "Search bookings"
 msgstr ""
 
-#: admin/class-admin.php:385
+#: admin/class-admin.php:388
 msgid "Booking not found"
 msgstr ""
 
-#: admin/class-admin.php:385
+#: admin/class-admin.php:388
 msgid "&larr; Back to bookings"
 msgstr ""
 
-#: admin/class-admin.php:410
+#: admin/class-admin.php:413
 #: includes/class-booking-repository.php:295
 msgid "Booking not found."
 msgstr ""
 
 #. translators: %s: number of bookings.
-#: admin/class-admin.php:505
+#: admin/class-admin.php:508
 #, php-format
 msgid "%s booking updated."
 msgid_plural "%s bookings updated."
@@ -105,44 +105,44 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: number of bookings.
-#: admin/class-admin.php:507
+#: admin/class-admin.php:510
 #, php-format
 msgid "%s booking deleted."
 msgid_plural "%s bookings deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/class-admin.php:508
+#: admin/class-admin.php:511
 msgid "Booking saved."
 msgstr ""
 
-#: admin/class-admin.php:509
+#: admin/class-admin.php:512
 msgid "Please enter the customer name."
 msgstr ""
 
-#: admin/class-admin.php:510
+#: admin/class-admin.php:513
 #: public/class-ajax.php:147
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: admin/class-admin.php:511
+#: admin/class-admin.php:514
 msgid "Please enter a valid date and start time."
 msgstr ""
 
-#: admin/class-admin.php:512
+#: admin/class-admin.php:515
 msgid "Please choose a valid status."
 msgstr ""
 
-#: admin/class-admin.php:513
+#: admin/class-admin.php:516
 msgid "The booking was not saved: this time overlaps with another active booking."
 msgstr ""
 
-#: admin/class-admin.php:514
+#: admin/class-admin.php:517
 msgid "The booking could not be saved. Please try again."
 msgstr ""
 
 #. translators: %s: number of bookings.
-#: admin/class-admin.php:529
+#: admin/class-admin.php:532
 #, php-format
 msgid "%s booking could not be changed (it may overlap another booking)."
 msgid_plural "%s bookings could not be changed (they may overlap other bookings)."

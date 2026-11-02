@@ -82,7 +82,7 @@ class Admin {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'admin_post_' . self::SAVE_ACTION, array( $this, 'handle_save' ) );
-		add_filter( 'set-screen-option', array( $this, 'save_screen_option' ), 10, 3 );
+		add_filter( 'set_screen_option_' . Bookings_List_Table::PER_PAGE_OPTION, array( $this, 'save_screen_option' ), 10, 3 );
 		add_filter( 'plugin_action_links_' . plugin_basename( EASY_BOOKING_FILE ), array( $this, 'plugin_links' ) );
 
 		$this->settings_page->register();
@@ -168,15 +168,18 @@ class Admin {
 	}
 
 	/**
-	 * Persist the "items per page" screen option.
+	 * Persist the "items per page" screen option (clamped to 1-200).
+	 *
+	 * Hooked to the option-specific `set_screen_option_{$option}` filter, so
+	 * $status and $option are part of the signature but not needed here.
 	 *
 	 * @param mixed  $status Default false.
 	 * @param string $option Option name.
 	 * @param mixed  $value  Submitted value.
-	 * @return mixed
+	 * @return int
 	 */
 	public function save_screen_option( $status, $option, $value ) {
-		return Bookings_List_Table::PER_PAGE_OPTION === $option ? min( 200, max( 1, absint( $value ) ) ) : $status;
+		return min( 200, max( 1, absint( $value ) ) );
 	}
 
 	/**
