@@ -1,0 +1,31 @@
+{
+	"name": "sharvan10/easy-booking",
+	"description": "Easy Appointment Booking - a lightweight, secure appointment booking plugin for WordPress.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Sharvan Kumar",
+			"homepage": "https://github.com/Sharvan10"
+		}
+	],
+	"require": {
+		"php": ">=7.4"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"scripts": {
+		"lint": "phpcs",
+		"lint:fix": "phpcbf",
+		"make-pot": "wp i18n make-pot . languages/easy-booking.pot --exclude=bin,build,vendor,node_modules",
+		"blueprint": "php bin/build-blueprint.php"
+	}
+}

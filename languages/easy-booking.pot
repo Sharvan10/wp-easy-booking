@@ -1,0 +1,773 @@
+# Copyright (C) 2026 Sharvan Kumar
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Appointment Booking 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/Sharvan10/wp-easy-booking/issues\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-02T08:54:43+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: easy-booking\n"
+
+#. Plugin Name of the plugin
+#: easy-booking.php
+msgid "Easy Appointment Booking"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: easy-booking.php
+msgid "https://github.com/Sharvan10/wp-easy-booking"
+msgstr ""
+
+#. Description of the plugin
+#: easy-booking.php
+msgid "A lightweight, secure appointment booking system. Add the [easy_booking] shortcode to any page to accept bookings with real-time slot availability."
+msgstr ""
+
+#. Author of the plugin
+#: easy-booking.php
+msgid "Sharvan Kumar"
+msgstr ""
+
+#. Author URI of the plugin
+#: easy-booking.php
+msgid "https://github.com/Sharvan10"
+msgstr ""
+
+#: admin/class-admin.php:104
+#: admin/class-admin.php:105
+#: admin/class-admin.php:355
+#: admin/class-dashboard-widget.php:64
+msgid "Bookings"
+msgstr ""
+
+#: admin/class-admin.php:113
+msgid "All Bookings"
+msgstr ""
+
+#: admin/class-admin.php:117
+#: admin/class-settings-page.php:108
+msgid "Booking Settings"
+msgstr ""
+
+#: admin/class-admin.php:118
+#: admin/class-admin.php:136
+#: admin/class-admin.php:356
+msgid "Settings"
+msgstr ""
+
+#: admin/class-admin.php:164
+msgid "Delete the selected booking(s) permanently? This cannot be undone."
+msgstr ""
+
+#: admin/class-admin.php:165
+msgid "Remove this service?"
+msgstr ""
+
+#: admin/class-admin.php:193
+#: admin/class-admin.php:329
+#: admin/class-admin.php:406
+msgid "You do not have permission to manage bookings."
+msgstr ""
+
+#: admin/class-admin.php:209
+msgid "Bookings per page"
+msgstr ""
+
+#: admin/class-admin.php:370
+msgid "Search bookings"
+msgstr ""
+
+#: admin/class-admin.php:388
+msgid "Booking not found"
+msgstr ""
+
+#: admin/class-admin.php:388
+msgid "&larr; Back to bookings"
+msgstr ""
+
+#: admin/class-admin.php:413
+#: includes/class-booking-repository.php:295
+msgid "Booking not found."
+msgstr ""
+
+#. translators: %s: number of bookings.
+#: admin/class-admin.php:508
+#, php-format
+msgid "%s booking updated."
+msgid_plural "%s bookings updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of bookings.
+#: admin/class-admin.php:510
+#, php-format
+msgid "%s booking deleted."
+msgid_plural "%s bookings deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-admin.php:511
+msgid "Booking saved."
+msgstr ""
+
+#: admin/class-admin.php:512
+msgid "Please enter the customer name."
+msgstr ""
+
+#: admin/class-admin.php:513
+#: public/class-ajax.php:147
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: admin/class-admin.php:514
+msgid "Please enter a valid date and start time."
+msgstr ""
+
+#: admin/class-admin.php:515
+msgid "Please choose a valid status."
+msgstr ""
+
+#: admin/class-admin.php:516
+msgid "The booking was not saved: this time overlaps with another active booking."
+msgstr ""
+
+#: admin/class-admin.php:517
+msgid "The booking could not be saved. Please try again."
+msgstr ""
+
+#. translators: %s: number of bookings.
+#: admin/class-admin.php:532
+#, php-format
+msgid "%s booking could not be changed (it may overlap another booking)."
+msgid_plural "%s bookings could not be changed (they may overlap other bookings)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-bookings-list-table.php:90
+#: admin/class-csv-exporter.php:106
+#: admin/views/booking-edit.php:55
+msgid "Customer"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:91
+#: admin/class-csv-exporter.php:109
+#: admin/views/booking-edit.php:112
+#: public/views/booking-form.php:54
+msgid "Service"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:92
+#: admin/views/booking-edit.php:71
+msgid "Appointment"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:93
+msgid "Contact"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:94
+#: admin/class-csv-exporter.php:115
+#: admin/views/booking-edit.php:82
+msgid "Status"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:95
+#: admin/views/booking-edit.php:129
+msgid "Booked on"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:121
+#: admin/class-bookings-list-table.php:267
+msgid "Confirm"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:122
+#: admin/class-bookings-list-table.php:271
+msgid "Cancel"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:123
+msgid "Delete permanently"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:142
+msgid "All"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:173
+#: admin/class-bookings-list-table.php:174
+msgid "From date"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:176
+#: admin/class-bookings-list-table.php:177
+msgid "To date"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:178
+msgid "Filter"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:180
+msgid "Reset"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:186
+msgid "Export CSV"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:236
+msgid "No bookings found."
+msgstr ""
+
+#. translators: %s: customer name.
+#: admin/class-bookings-list-table.php:250
+#, php-format
+msgid "Select booking for %s"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:263
+msgid "View / Edit"
+msgstr ""
+
+#: admin/class-bookings-list-table.php:277
+msgid "Delete"
+msgstr ""
+
+#. translators: %d: duration in minutes.
+#: admin/class-bookings-list-table.php:300
+#, php-format
+msgid "%d min"
+msgstr ""
+
+#. translators: %s: human-readable time difference, e.g. "2 hours".
+#: admin/class-bookings-list-table.php:356
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: admin/class-csv-exporter.php:80
+msgid "You do not have permission to export bookings."
+msgstr ""
+
+#: admin/class-csv-exporter.php:105
+msgid "ID"
+msgstr ""
+
+#: admin/class-csv-exporter.php:107
+#: admin/views/booking-edit.php:62
+#: public/views/booking-form.php:42
+msgid "Email"
+msgstr ""
+
+#: admin/class-csv-exporter.php:108
+#: admin/views/booking-edit.php:66
+#: public/views/booking-form.php:48
+msgid "Phone"
+msgstr ""
+
+#: admin/class-csv-exporter.php:110
+#: admin/class-settings-page.php:236
+#: admin/views/booking-edit.php:115
+msgid "Price"
+msgstr ""
+
+#: admin/class-csv-exporter.php:111
+#: admin/class-settings-page.php:178
+msgid "Duration (min)"
+msgstr ""
+
+#: admin/class-csv-exporter.php:112
+#: admin/views/booking-edit.php:74
+#: public/views/booking-form.php:77
+msgid "Date"
+msgstr ""
+
+#: admin/class-csv-exporter.php:113
+msgid "Start"
+msgstr ""
+
+#: admin/class-csv-exporter.php:114
+msgid "End"
+msgstr ""
+
+#: admin/class-csv-exporter.php:116
+#: admin/views/booking-edit.php:92
+#: public/views/booking-form.php:92
+msgid "Notes"
+msgstr ""
+
+#: admin/class-csv-exporter.php:117
+msgid "Created"
+msgstr ""
+
+#: admin/class-dashboard-widget.php:113
+msgid "Today"
+msgstr ""
+
+#. translators: %d: number of days.
+#: admin/class-dashboard-widget.php:120
+#, php-format
+msgid "Next %d days"
+msgstr ""
+
+#: admin/class-dashboard-widget.php:126
+#: includes/class-status.php:30
+msgid "Pending"
+msgstr ""
+
+#: admin/class-dashboard-widget.php:130
+msgid "Today's bookings"
+msgstr ""
+
+#: admin/class-dashboard-widget.php:131
+msgid "No bookings today."
+msgstr ""
+
+#: admin/class-dashboard-widget.php:133
+msgid "Upcoming"
+msgstr ""
+
+#: admin/class-dashboard-widget.php:134
+msgid "No upcoming bookings."
+msgstr ""
+
+#: admin/class-dashboard-widget.php:137
+msgid "View all bookings"
+msgstr ""
+
+#: admin/class-settings-page.php:68
+msgid "Services"
+msgstr ""
+
+#: admin/class-settings-page.php:69
+msgid "Services offered"
+msgstr ""
+
+#: admin/class-settings-page.php:72
+msgid "Schedule"
+msgstr ""
+
+#: admin/class-settings-page.php:73
+#: admin/class-settings-page.php:258
+msgid "Working days"
+msgstr ""
+
+#: admin/class-settings-page.php:74
+msgid "Working hours"
+msgstr ""
+
+#: admin/class-settings-page.php:75
+msgid "Slot length"
+msgstr ""
+
+#: admin/class-settings-page.php:76
+msgid "Booking window"
+msgstr ""
+
+#: admin/class-settings-page.php:79
+msgid "General"
+msgstr ""
+
+#: admin/class-settings-page.php:80
+msgid "Notification email"
+msgstr ""
+
+#: admin/class-settings-page.php:81
+msgid "Currency symbol"
+msgstr ""
+
+#: admin/class-settings-page.php:84
+msgid "Email templates"
+msgstr ""
+
+#: admin/class-settings-page.php:87
+msgid "Customer confirmation"
+msgstr ""
+
+#: admin/class-settings-page.php:88
+msgid "Admin notification"
+msgstr ""
+
+#: admin/class-settings-page.php:89
+msgid "Status change (customer)"
+msgstr ""
+
+#: admin/class-settings-page.php:104
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#. translators: %s: shortcode.
+#: admin/class-settings-page.php:114
+#, php-format
+msgid "Add the booking form to any page or post with the %s shortcode."
+msgstr ""
+
+#: admin/class-settings-page.php:139
+msgid "Define the services customers can book. Clear a service name to remove it."
+msgstr ""
+
+#: admin/class-settings-page.php:148
+msgid "Time slots are generated within your working hours. Already booked slots are hidden automatically."
+msgstr ""
+
+#: admin/class-settings-page.php:157
+msgid "Emails are sent as plain text. Available placeholders:"
+msgstr ""
+
+#: admin/class-settings-page.php:177
+#: admin/views/booking-edit.php:58
+msgid "Name"
+msgstr ""
+
+#. translators: %s: currency symbol.
+#: admin/class-settings-page.php:182
+#, php-format
+msgid "Price (%s)"
+msgstr ""
+
+#: admin/class-settings-page.php:185
+msgid "Actions"
+msgstr ""
+
+#: admin/class-settings-page.php:201
+msgid "Add service"
+msgstr ""
+
+#: admin/class-settings-page.php:228
+msgid "Service name"
+msgstr ""
+
+#: admin/class-settings-page.php:229
+msgid "e.g. Haircut"
+msgstr ""
+
+#: admin/class-settings-page.php:232
+msgid "Duration in minutes"
+msgstr ""
+
+#: admin/class-settings-page.php:240
+msgid "Remove service"
+msgstr ""
+
+#: admin/class-settings-page.php:282
+msgid "Opening time"
+msgstr ""
+
+#: admin/class-settings-page.php:285
+msgid "Closing time"
+msgstr ""
+
+#. translators: %d: number of minutes.
+#: admin/class-settings-page.php:305
+#, php-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-settings-page.php:309
+msgid "How often a new appointment can start (e.g. every 30 minutes)."
+msgstr ""
+
+#: admin/class-settings-page.php:322
+msgid "days in advance"
+msgstr ""
+
+#: admin/class-settings-page.php:336
+msgid "New booking notifications are sent to this address."
+msgstr ""
+
+#: admin/class-settings-page.php:366
+msgid "Subject"
+msgstr ""
+
+#: admin/class-settings-page.php:375
+msgid "Message"
+msgstr ""
+
+#. translators: %d: booking ID.
+#: admin/views/booking-edit.php:40
+#, php-format
+msgid "Booking #%d"
+msgstr ""
+
+#: admin/views/booking-edit.php:44
+msgid "← All bookings"
+msgstr ""
+
+#: admin/views/booking-edit.php:78
+msgid "Start time"
+msgstr ""
+
+#: admin/views/booking-edit.php:99
+msgid "Email the customer if the status changes"
+msgstr ""
+
+#: admin/views/booking-edit.php:104
+msgid "Save booking"
+msgstr ""
+
+#: admin/views/booking-edit.php:105
+msgid "Delete booking"
+msgstr ""
+
+#: admin/views/booking-edit.php:110
+msgid "Summary"
+msgstr ""
+
+#: admin/views/booking-edit.php:118
+msgid "Duration"
+msgstr ""
+
+#. translators: %d: duration in minutes.
+#: admin/views/booking-edit.php:122
+#, php-format
+msgid "%d minutes"
+msgstr ""
+
+#: admin/views/booking-edit.php:126
+msgid "When"
+msgstr ""
+
+#: admin/views/booking-edit.php:132
+msgid "Last updated"
+msgstr ""
+
+#: admin/views/booking-edit.php:136
+msgid "Email customer"
+msgstr ""
+
+#: includes/class-availability.php:83
+msgid "Please choose a valid date."
+msgstr ""
+
+#: includes/class-availability.php:87
+msgid "You cannot book a date in the past."
+msgstr ""
+
+#: includes/class-availability.php:91
+msgid "That date is too far in the future."
+msgstr ""
+
+#: includes/class-availability.php:95
+#: public/class-shortcode.php:73
+msgid "We are closed on that day. Please pick another date."
+msgstr ""
+
+#: includes/class-booking-repository.php:238
+msgid "The booking system is busy. Please try again in a moment."
+msgstr ""
+
+#: includes/class-booking-repository.php:243
+msgid "Sorry, that time slot has just been booked. Please choose another one."
+msgstr ""
+
+#: includes/class-booking-repository.php:272
+msgid "Could not save your booking. Please try again."
+msgstr ""
+
+#: includes/class-booking-repository.php:313
+msgid "Invalid status."
+msgstr ""
+
+#: includes/class-booking-repository.php:323
+msgid "This time overlaps with another active booking."
+msgstr ""
+
+#: includes/class-booking-repository.php:339
+msgid "Could not update the booking."
+msgstr ""
+
+#: includes/class-settings.php:50
+msgid "Consultation"
+msgstr ""
+
+#: includes/class-settings.php:62
+msgid "Your booking request at {site_name}"
+msgstr ""
+
+#: includes/class-settings.php:63
+msgid ""
+"Hi {customer_name},\n"
+"\n"
+"Thank you for your booking. Here are the details:\n"
+"\n"
+"Service: {service}\n"
+"Date: {date}\n"
+"Time: {time}\n"
+"Status: {status}\n"
+"\n"
+"We will contact you if anything changes.\n"
+"\n"
+"{site_name}"
+msgstr ""
+
+#: includes/class-settings.php:64
+msgid "New booking #{booking_id} from {customer_name}"
+msgstr ""
+
+#: includes/class-settings.php:65
+msgid ""
+"A new booking has been received.\n"
+"\n"
+"Name: {customer_name}\n"
+"Email: {customer_email}\n"
+"Phone: {customer_phone}\n"
+"Service: {service}\n"
+"Date: {date}\n"
+"Time: {time}\n"
+"Notes: {notes}\n"
+"\n"
+"Manage it here: {admin_url}"
+msgstr ""
+
+#: includes/class-settings.php:66
+msgid "Your booking is now {status}"
+msgstr ""
+
+#: includes/class-settings.php:67
+msgid ""
+"Hi {customer_name},\n"
+"\n"
+"The status of your booking has been updated.\n"
+"\n"
+"Service: {service}\n"
+"Date: {date}\n"
+"Time: {time}\n"
+"New status: {status}\n"
+"\n"
+"{site_name}"
+msgstr ""
+
+#: includes/class-settings.php:190
+msgid "Please add at least one service so customers can book."
+msgstr ""
+
+#: includes/class-settings.php:202
+msgid "Working hours are invalid: the end time must be after the start time. Previous values were kept."
+msgstr ""
+
+#: includes/class-settings.php:225
+msgid "The notification email address is invalid. The site admin email will be used instead."
+msgstr ""
+
+#: includes/class-status.php:31
+msgid "Confirmed"
+msgstr ""
+
+#: includes/class-status.php:32
+msgid "Cancelled"
+msgstr ""
+
+#: public/class-ajax.php:99
+#: public/class-ajax.php:155
+msgid "Please choose a service."
+msgstr ""
+
+#: public/class-ajax.php:120
+msgid "Thank you! Your booking request has been received."
+msgstr ""
+
+#: public/class-ajax.php:124
+msgid "Too many booking attempts. Please try again later."
+msgstr ""
+
+#: public/class-ajax.php:141
+msgid "Please enter your name."
+msgstr ""
+
+#: public/class-ajax.php:143
+msgid "Your name is too long."
+msgstr ""
+
+#: public/class-ajax.php:151
+msgid "Please enter a valid phone number."
+msgstr ""
+
+#: public/class-ajax.php:164
+msgid "Please choose a time slot."
+msgstr ""
+
+#: public/class-ajax.php:166
+msgid "Sorry, that time is no longer available. Please choose another one."
+msgstr ""
+
+#: public/class-ajax.php:170
+msgid "Notes must be 1000 characters or fewer."
+msgstr ""
+
+#: public/class-ajax.php:184
+msgid "Please correct the highlighted fields."
+msgstr ""
+
+#. translators: 1: service name, 2: date, 3: time.
+#: public/class-ajax.php:234
+#, php-format
+msgid "Thank you! Your booking for %1$s on %2$s at %3$s has been received. A confirmation email is on its way."
+msgstr ""
+
+#: public/class-shortcode.php:70
+msgid "Loading available times…"
+msgstr ""
+
+#: public/class-shortcode.php:71
+#: public/views/booking-form.php:86
+msgid "Choose a service and a date to see available times."
+msgstr ""
+
+#: public/class-shortcode.php:72
+msgid "No times are available on this date. Please try another day."
+msgstr ""
+
+#: public/class-shortcode.php:74
+msgid "Sending…"
+msgstr ""
+
+#: public/class-shortcode.php:75
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: public/class-shortcode.php:97
+msgid "Book an appointment"
+msgstr ""
+
+#: public/views/booking-form.php:29
+msgid "Online booking is not available at the moment."
+msgstr ""
+
+#: public/views/booking-form.php:36
+msgid "Full name"
+msgstr ""
+
+#: public/views/booking-form.php:56
+msgid "Select a service"
+msgstr ""
+
+#. translators: 1: service name, 2: duration in minutes, 3: formatted price.
+#: public/views/booking-form.php:63
+#, php-format
+msgid "%1$s — %2$d min — %3$s"
+msgstr ""
+
+#: public/views/booking-form.php:84
+msgid "Available times"
+msgstr ""
+
+#: public/views/booking-form.php:92
+msgid "(optional)"
+msgstr ""
+
+#: public/views/booking-form.php:99
+msgid "Leave this field empty"
+msgstr ""
+
+#: public/views/booking-form.php:103
+msgid "Book appointment"
+msgstr ""

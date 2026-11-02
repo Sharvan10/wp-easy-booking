@@ -1,0 +1,40 @@
+{
+    "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+    "meta": {
+        "title": "Easy Appointment Booking demo",
+        "description": "Installs Easy Appointment Booking from GitHub, creates a booking page and adds sample services and bookings.",
+        "author": "Sharvan10",
+        "categories": [
+            "Booking",
+            "Appointments"
+        ]
+    },
+    "landingPage": "/book/",
+    "preferredVersions": {
+        "php": "8.2",
+        "wp": "latest"
+    },
+    "features": {
+        "networking": true
+    },
+    "login": true,
+    "steps": [
+        {
+            "step": "installPlugin",
+            "pluginData": {
+                "resource": "git:directory",
+                "url": "https://github.com/Sharvan10/wp-easy-booking",
+                "ref": "main",
+                "refType": "branch"
+            },
+            "options": {
+                "activate": true,
+                "targetFolderName": "easy-booking"
+            }
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php\n/**\n * Demo data seeder for WordPress Playground (and local testing).\n *\n * Creates a \"Book an Appointment\" page with the [easy_booking] shortcode,\n * configures 3 sample services and inserts 5 sample bookings on upcoming\n * working days.\n *\n * Usage:\n *   - Embedded into blueprint.json by bin/build-blueprint.php.\n *   - Or locally: wp eval-file bin/demo-data.php\n *\n * @package EasyBooking\n */\n\n// When run by Playground's runPHP step, WordPress is not loaded yet.\nif ( ! defined( 'ABSPATH' ) ) {\n\trequire_once '/wordpress/wp-load.php';\n}\n\nuse EasyBooking\\Helpers;\nuse EasyBooking\\Plugin;\nuse EasyBooking\\Settings;\nuse EasyBooking\\Status;\n\n// 1. Settings: 3 services, Mon-Sat 09:00-18:00, 30 minute slots.\n$easy_booking_settings = array_merge(\n\tSettings::all(),\n\tarray(\n\t\t'services'     => array(\n\t\t\tarray(\n\t\t\t\t'id'       => 'haircut',\n\t\t\t\t'name'     => 'Haircut & Styling',\n\t\t\t\t'duration' => 45,\n\t\t\t\t'price'    => 35,\n\t\t\t),\n\t\t\tarray(\n\t\t\t\t'id'       => 'consultation',\n\t\t\t\t'name'     => 'Free Consultation',\n\t\t\t\t'duration' => 30,\n\t\t\t\t'price'    => 0,\n\t\t\t),\n\t\t\tarray(\n\t\t\t\t'id'       => 'coloring',\n\t\t\t\t'name'     => 'Hair Coloring',\n\t\t\t\t'duration' => 90,\n\t\t\t\t'price'    => 80,\n\t\t\t),\n\t\t),\n\t\t'working_days' => array( 1, 2, 3, 4, 5, 6 ),\n\t\t'start_time'   => '09:00',\n\t\t'end_time'     => '18:00',\n\t\t'slot_length'  => 30,\n\t)\n);\nupdate_option( Settings::OPTION_NAME, $easy_booking_settings );\nSettings::flush_cache();\n\n// 2. Pretty permalinks so the demo page lives at /book/.\nif ( '' === get_option( 'permalink_structure' ) ) {\n\tglobal $wp_rewrite;\n\t$wp_rewrite->set_permalink_structure( '/%postname%/' );\n\tflush_rewrite_rules();\n}\n\n// 3. Booking page.\n$easy_booking_page_id = wp_insert_post(\n\tarray(\n\t\t'post_title'   => 'Book an Appointment',\n\t\t'post_name'    => 'book',\n\t\t'post_content' => \"<!-- wp:paragraph -->\\n<p>Pick a service and a time that suits you. You will receive a confirmation email right away.</p>\\n<!-- /wp:paragraph -->\\n\\n<!-- wp:shortcode -->\\n[easy_booking]\\n<!-- /wp:shortcode -->\",\n\t\t'post_status'  => 'publish',\n\t\t'post_type'    => 'page',\n\t)\n);\n\n// 4. Five sample bookings on the next working days.\n$easy_booking_customers = array(\n\tarray( 'Emma Johnson', 'emma@example.com', '+1 555 0101', 'haircut', '10:00', Status::CONFIRMED, 'First visit, prefers a short style.' ),\n\tarray( 'Liam Smith', 'liam@example.com', '+1 555 0102', 'consultation', '11:30', Status::PENDING, '' ),\n\tarray( 'Olivia Brown', 'olivia@example.com', '+1 555 0103', 'coloring', '14:00', Status::CONFIRMED, 'Allergic to ammonia-based products.' ),\n\tarray( 'Noah Davis', 'noah@example.com', '+1 555 0104', 'haircut', '09:30', Status::PENDING, '' ),\n\tarray( 'Ava Wilson', 'ava@example.com', '+1 555 0105', 'consultation', '16:00', Status::CANCELLED, 'Had to reschedule.' ),\n);\n\n$easy_booking_repository = Plugin::instance()->repository();\n$easy_booking_day        = Helpers::now()->modify( '-1 day' );\n\nforeach ( $easy_booking_customers as $easy_booking_row ) {\n\t// One booking per working day, starting today (or the next working day).\n\tdo {\n\t\t$easy_booking_day = $easy_booking_day->modify( '+1 day' );\n\t} while ( ! in_array( (int) $easy_booking_day->format( 'N' ), $easy_booking_settings['working_days'], true ) );\n\n\t$easy_booking_service = Settings::find_service( $easy_booking_row[3] );\n\t$easy_booking_start   = Helpers::time_to_minutes( $easy_booking_row[4] );\n\n\t$easy_booking_repository->create(\n\t\tarray(\n\t\t\t'service_id'     => $easy_booking_service['id'],\n\t\t\t'service_name'   => $easy_booking_service['name'],\n\t\t\t'service_price'  => $easy_booking_service['price'],\n\t\t\t'duration'       => $easy_booking_service['duration'],\n\t\t\t'customer_name'  => $easy_booking_row[0],\n\t\t\t'customer_email' => $easy_booking_row[1],\n\t\t\t'customer_phone' => $easy_booking_row[2],\n\t\t\t'booking_date'   => $easy_booking_day->format( 'Y-m-d' ),\n\t\t\t'start_time'     => Helpers::minutes_to_time( $easy_booking_start ),\n\t\t\t'end_time'       => Helpers::minutes_to_time( $easy_booking_start + (int) $easy_booking_service['duration'] ),\n\t\t\t'notes'          => $easy_booking_row[6],\n\t\t\t'status'         => $easy_booking_row[5],\n\t\t)\n\t);\n}\n"
+        }
+    ]
+}

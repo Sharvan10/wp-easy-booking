@@ -1,0 +1,328 @@
+/**
+ * Easy Appointment Booking - admin styles.
+ *
+ * Builds on core admin styles; only adds what is needed.
+ */
+
+.eb-wrap {
+	--eb-accent: #4f46e5;
+	--eb-muted: #646970;
+	--eb-border: #dcdcde;
+	--eb-radius: 8px;
+}
+
+.eb-muted {
+	color: var(--eb-muted, #646970);
+	font-size: 12px;
+}
+
+.eb-id {
+	color: #8c8f94;
+	font-weight: 400;
+}
+
+/* Cards */
+.eb-card {
+	background: #fff;
+	border: 1px solid var(--eb-border);
+	border-radius: var(--eb-radius);
+	padding: 20px 24px;
+	margin: 16px 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.eb-card h2 {
+	margin-top: 0;
+	font-size: 15px;
+}
+
+/* Status badges */
+.eb-badge {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.7;
+	white-space: nowrap;
+	background: #f0f0f1;
+	color: #50575e;
+}
+
+.eb-badge--pending {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.eb-badge--confirmed {
+	background: #d1fae5;
+	color: #065f46;
+}
+
+.eb-badge--cancelled {
+	background: #fee2e2;
+	color: #991b1b;
+}
+
+h1 + .eb-badge {
+	margin: 0 8px;
+	vertical-align: 3px;
+}
+
+/* List table */
+.eb-filters input[type="date"] {
+	vertical-align: middle;
+}
+
+.eb-reset {
+	display: inline-block;
+	margin: 6px 0 0 6px;
+}
+
+.tablenav .button .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	vertical-align: -3px;
+}
+
+.wp-list-table .column-status {
+	width: 110px;
+}
+
+.wp-list-table .column-created_at {
+	width: 120px;
+}
+
+.wp-list-table .column-booking_date {
+	width: 170px;
+}
+
+/* Single booking */
+.eb-edit__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+	gap: 20px;
+	align-items: start;
+	max-width: 1200px;
+}
+
+.eb-form-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0 16px;
+}
+
+.eb-edit__form h2 + .eb-form-grid,
+.eb-edit__form h2:first-of-type {
+	margin-top: 0;
+}
+
+.eb-edit__form .eb-form-grid + h2 {
+	margin-top: 24px;
+	padding-top: 16px;
+	border-top: 1px solid #f0f0f1;
+}
+
+.eb-edit__form label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.eb-edit__form .eb-checkbox label {
+	font-weight: 400;
+}
+
+.eb-edit__actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding-top: 16px;
+	border-top: 1px solid #f0f0f1;
+}
+
+.eb-link-delete {
+	color: #b32d2e;
+}
+
+.eb-link-delete:hover,
+.eb-link-delete:focus {
+	color: #8a2424;
+}
+
+.eb-summary {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 8px 16px;
+	margin: 0 0 16px;
+}
+
+.eb-summary dt {
+	color: var(--eb-muted);
+}
+
+.eb-summary dd {
+	margin: 0;
+	font-weight: 500;
+}
+
+.eb-edit__summary .button .dashicons {
+	vertical-align: -4px;
+	font-size: 16px;
+}
+
+/* Settings */
+.eb-settings .form-table {
+	max-width: 1000px;
+}
+
+.eb-shortcode-hint {
+	max-width: 952px;
+	border-left: 4px solid var(--eb-accent);
+}
+
+.eb-services {
+	max-width: 720px;
+}
+
+.eb-services .eb-col-small {
+	width: 130px;
+}
+
+.eb-services .eb-col-action {
+	width: 40px;
+}
+
+.eb-services td {
+	vertical-align: middle;
+}
+
+.eb-services .regular-text {
+	width: 100%;
+}
+
+.eb-remove-service {
+	color: #b32d2e;
+	cursor: pointer;
+}
+
+.eb-add-service .dashicons {
+	vertical-align: -4px;
+	font-size: 16px;
+}
+
+.eb-days {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.eb-day {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	background: #fff;
+	border: 1px solid var(--eb-border);
+	border-radius: 999px;
+	cursor: pointer;
+}
+
+.eb-day:has(input:checked) {
+	border-color: var(--eb-accent);
+	background: #eef2ff;
+}
+
+.eb-label {
+	display: block;
+	margin: 8px 0 4px;
+	font-weight: 600;
+}
+
+.eb-placeholders code {
+	display: inline-block;
+	margin: 0 4px 4px 0;
+}
+
+/* Dashboard widget */
+.eb-widget__stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	margin-bottom: 12px;
+}
+
+.eb-widget__stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px 8px;
+	background: #f6f7f7;
+	border-radius: 6px;
+	text-decoration: none;
+	color: inherit;
+}
+
+.eb-widget__stat--link:hover,
+.eb-widget__stat--link:focus {
+	background: #fef3c7;
+	color: inherit;
+}
+
+.eb-widget__number {
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.eb-widget__label {
+	font-size: 12px;
+	color: #646970;
+}
+
+.eb-widget__heading {
+	margin: 16px 0 6px !important;
+	font-weight: 600 !important;
+}
+
+.eb-widget__list {
+	margin: 0;
+}
+
+.eb-widget__list li {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 8px;
+	padding: 6px 0;
+	margin: 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.eb-widget__list .eb-badge {
+	margin-left: auto;
+}
+
+.eb-widget__time {
+	min-width: 64px;
+	font-weight: 600;
+}
+
+.eb-widget__empty {
+	color: #646970;
+	font-style: italic;
+}
+
+.eb-widget__footer {
+	margin: 12px 0 0;
+	text-align: right;
+}
+
+@media (max-width: 960px) {
+	.eb-edit__layout,
+	.eb-form-grid {
+		grid-template-columns: 1fr;
+	}
+}
