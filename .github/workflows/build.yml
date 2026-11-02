@@ -50,6 +50,27 @@ jobs:
       - name: Run PHPCS
         run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
 
+  blueprint:
+    name: Validate Playground blueprint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check blueprint.json is in sync with bin/demo-data.php
+        run: |
+          php bin/build-blueprint.php
+          git diff --exit-code blueprint.json
+
+      - name: Validate against the official Playground schema
+        run: |
+          curl -fsSL https://playground.wordpress.net/blueprint-schema.json -o "$RUNNER_TEMP/blueprint-schema.json"
+          npx --yes ajv-cli@5 validate --spec=draft7 --strict=false \
+            -s "$RUNNER_TEMP/blueprint-schema.json" -d blueprint.json
+
   build:
     name: Build installable zip
     needs: [lint, phpcs]

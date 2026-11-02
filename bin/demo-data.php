@@ -18,10 +18,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	require_once '/wordpress/wp-load.php';
 }
 
+use EasyBooking\Activator;
 use EasyBooking\Helpers;
 use EasyBooking\Plugin;
 use EasyBooking\Settings;
 use EasyBooking\Status;
+
+// Fail loudly (instead of with an obscure fatal) if the plugin did not load.
+if ( ! class_exists( Plugin::class ) ) {
+	throw new RuntimeException( 'Easy Appointment Booking is not active; demo data was not created.' );
+}
+
+// Make sure the bookings table exists even if the activation hook was skipped.
+Activator::activate();
 
 // 1. Settings: 3 services, Mon-Sat 09:00-18:00, 30 minute slots.
 $easy_booking_settings = array_merge(
@@ -63,16 +72,18 @@ if ( '' === get_option( 'permalink_structure' ) ) {
 	flush_rewrite_rules();
 }
 
-// 3. Booking page.
-$easy_booking_page_id = wp_insert_post(
-	array(
-		'post_title'   => 'Book an Appointment',
-		'post_name'    => 'book',
-		'post_content' => "<!-- wp:paragraph -->\n<p>Pick a service and a time that suits you. You will receive a confirmation email right away.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[easy_booking]\n<!-- /wp:shortcode -->",
-		'post_status'  => 'publish',
-		'post_type'    => 'page',
-	)
-);
+// 3. Booking page (created once, so the seeder can safely run again).
+if ( ! get_page_by_path( 'book' ) ) {
+	wp_insert_post(
+		array(
+			'post_title'   => 'Book an Appointment',
+			'post_name'    => 'book',
+			'post_content' => "<!-- wp:paragraph -->\n<p>Pick a service and a time that suits you. You will receive a confirmation email right away.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[easy_booking]\n<!-- /wp:shortcode -->",
+			'post_status'  => 'publish',
+			'post_type'    => 'page',
+		)
+	);
+}
 
 // 4. Five sample bookings on the next working days.
 $easy_booking_customers = array(
@@ -84,6 +95,12 @@ $easy_booking_customers = array(
 );
 
 $easy_booking_repository = Plugin::instance()->repository();
+
+// Only seed bookings into an empty table.
+if ( $easy_booking_repository->count() > 0 ) {
+	return;
+}
+
 $easy_booking_day        = Helpers::now()->modify( '-1 day' );
 
 foreach ( $easy_booking_customers as $easy_booking_row ) {

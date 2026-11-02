@@ -25,11 +25,8 @@ $easy_booking_blueprint = array(
 	),
 	'landingPage'       => '/book/',
 	'preferredVersions' => array(
-		'php' => '8.2',
+		'php' => '8.3',
 		'wp'  => 'latest',
-	),
-	'features'          => array(
-		'networking' => true,
 	),
 	'login'             => true,
 	'steps'             => array(
