@@ -1,0 +1,258 @@
+/**
+ * Easy Appointment Booking - frontend styles.
+ *
+ * Uses CSS custom properties so themes can restyle the form easily:
+ * .eb-booking { --eb-accent: #e11d48; }
+ */
+
+.eb-booking {
+	--eb-accent: #4f46e5;
+	--eb-accent-hover: #4338ca;
+	--eb-text: #1f2937;
+	--eb-muted: #6b7280;
+	--eb-border: #d1d5db;
+	--eb-bg: #fff;
+	--eb-field-bg: #f9fafb;
+	--eb-radius: 10px;
+	--eb-success: #047857;
+	--eb-success-bg: #ecfdf5;
+	--eb-error: #b91c1c;
+	--eb-error-bg: #fef2f2;
+
+	box-sizing: border-box;
+	margin-bottom: 2rem;
+	padding: clamp(1.25rem, 4vw, 2rem);
+	color: var(--eb-text);
+	background: var(--eb-bg);
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px -12px rgba(17, 24, 39, 0.18);
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+/* Zero-specificity defaults so block themes' content width can win. */
+:where(.eb-booking) {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.eb-booking *,
+.eb-booking *::before,
+.eb-booking *::after {
+	box-sizing: inherit;
+}
+
+.eb-booking__title {
+	margin: 0 0 1.25rem;
+	font-size: 1.5rem;
+	line-height: 1.25;
+}
+
+.eb-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0 1.25rem;
+}
+
+.eb-field {
+	display: flex;
+	flex-direction: column;
+	margin: 0 0 1.1rem;
+	min-width: 0;
+}
+
+.eb-field label,
+.eb-field legend {
+	margin-bottom: 0.4rem;
+	font-weight: 600;
+	font-size: 0.925rem;
+}
+
+.eb-required {
+	color: var(--eb-error);
+}
+
+.eb-optional {
+	color: var(--eb-muted);
+	font-weight: 400;
+}
+
+.eb-field input,
+.eb-field select,
+.eb-field textarea {
+	width: 100%;
+	padding: 0.7rem 0.85rem;
+	font: inherit;
+	color: inherit;
+	background: var(--eb-field-bg);
+	border: 1px solid var(--eb-border);
+	border-radius: var(--eb-radius);
+	transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.eb-field input:focus,
+.eb-field select:focus,
+.eb-field textarea:focus {
+	outline: none;
+	background: #fff;
+	border-color: var(--eb-accent);
+	box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
+}
+
+.eb-field textarea {
+	resize: vertical;
+}
+
+.eb-field--invalid input,
+.eb-field--invalid select,
+.eb-field--invalid textarea {
+	border-color: var(--eb-error);
+}
+
+.eb-error {
+	min-height: 0;
+	margin-top: 0.3rem;
+	font-size: 0.85rem;
+	color: var(--eb-error);
+}
+
+.eb-error:empty {
+	display: none;
+}
+
+/* Time slots */
+.eb-slots-field {
+	padding: 0;
+	border: 0;
+}
+
+.eb-slots {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+	gap: 0.5rem;
+}
+
+.eb-slots__hint {
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 0.85rem 1rem;
+	font-size: 0.925rem;
+	color: var(--eb-muted);
+	background: var(--eb-field-bg);
+	border: 1px dashed var(--eb-border);
+	border-radius: var(--eb-radius);
+}
+
+.eb-slot__input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.eb-slot {
+	display: block;
+	padding: 0.6rem 0.5rem;
+	font-weight: 600;
+	font-size: 0.9rem;
+	text-align: center;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid var(--eb-border);
+	border-radius: var(--eb-radius);
+	transition: all 0.15s;
+}
+
+.eb-slot:hover {
+	border-color: var(--eb-accent);
+	color: var(--eb-accent);
+}
+
+.eb-slot__input:focus-visible + .eb-slot {
+	box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+.eb-slot__input:checked + .eb-slot,
+.eb-slot__input:checked + .eb-slot:hover {
+	color: #fff;
+	background: var(--eb-accent);
+	border-color: var(--eb-accent);
+}
+
+/* Button */
+.eb-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0.85rem 1.5rem;
+	font: inherit;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	background: var(--eb-accent);
+	border: 0;
+	border-radius: var(--eb-radius);
+	transition: background-color 0.15s, transform 0.05s;
+}
+
+.eb-button:hover {
+	background: var(--eb-accent-hover);
+}
+
+.eb-button:active {
+	transform: translateY(1px);
+}
+
+.eb-button:disabled {
+	opacity: 0.65;
+	cursor: wait;
+}
+
+/* Messages */
+.eb-alert,
+.eb-notice {
+	margin: 0 0 1.25rem;
+	padding: 0.85rem 1rem;
+	border-radius: var(--eb-radius);
+	font-size: 0.95rem;
+}
+
+.eb-alert--success {
+	color: var(--eb-success);
+	background: var(--eb-success-bg);
+	border: 1px solid #a7f3d0;
+}
+
+.eb-alert--error {
+	color: var(--eb-error);
+	background: var(--eb-error-bg);
+	border: 1px solid #fecaca;
+}
+
+.eb-notice--info {
+	color: var(--eb-muted);
+	background: var(--eb-field-bg);
+}
+
+/* Honeypot - visually hidden but not display:none (some bots skip those). */
+.eb-hp {
+	position: absolute !important;
+	left: -9999px !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+@media (max-width: 600px) {
+	.eb-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.eb-booking * {
+		transition: none !important;
+	}
+}
